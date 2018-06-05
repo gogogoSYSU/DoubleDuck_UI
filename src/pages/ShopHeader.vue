@@ -50,8 +50,9 @@ export default {
   height: 30%;
 }
 .shop_title h5 {
-  width: 70%;
+  width: 100%;
   margin-right: 0px;
+  text-align: left;
 }
 div .mint-searchbar {
   background-color: transparent;
