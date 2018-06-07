@@ -9,6 +9,11 @@
       <mt-search id="shop_search" v-model="msg"></mt-search>
     </div>
 
+    <div class="detail">
+      <a href="#"><img class="shop_detail_pic" src="../../assets/img/right_arrow.png"/></a>
+      <img class="vertical_line" src="../../assets/img/vertical_line.png"/>
+    </div>
+
     <div class="like">
       <img class="like_pic" src="../../assets/img/like.png" />
       <p class="like_num">999+</p>
@@ -67,7 +72,7 @@ export default {
 div .mint-searchbar {
   background-color: transparent;
   padding: 0px;
-  width: 250px;
+  width: 200px;
 }
 div .mint-searchbar-inner {
   border-radius: 10px;
@@ -75,6 +80,21 @@ div .mint-searchbar-inner {
 }
 .mint-searchbar-inner .mintui-search {
   color: #2f373d;
+}
+.detail {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.shop_detail_pic {
+  width: 10px;
+  margin-top: 25px;
+  margin-right: 10px;
+}
+.vertical_line {
+  width: 5px;
+  height: 80px;
+  margin-top: 8px;
 }
 .like {
   display: flex;
