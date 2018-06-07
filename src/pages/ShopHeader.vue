@@ -1,14 +1,18 @@
 <template>
   <div class="shop_header">
     <img class="shop_img" src="../../assets/img/header.jpeg"/>
+
     <div class="shop_name">
       <div class="shop_title">
         <h5>双鸭美食（大学城店）</h5>
       </div>
       <mt-search id="shop_search" v-model="msg"></mt-search>
     </div>
-    <a href="#"><img class="like" src="../../assets/img/like.png" width="10%"/></a>
-    <p class="like_num">999+</p>
+
+    <div class="like">
+      <img class="like_pic" src="../../assets/img/like.png" />
+      <p class="like_num">999+</p>
+    </div>
   </div>
 </template>
 
@@ -33,42 +37,59 @@ export default {
 
 <style>
 .shop_header {
+  display: flex;
+  justify-content: space-between;
   height: 100px;
-  background-color: #D0F5A9;
+  background-image: url(../../assets/img/header_bg.jpg);
 }
 .shop_img {
   width: 80px;
   margin: 10px;
-  float: left;
 }
 .shop_name {
-  float: left;
-  width: 50%;
+  flex-grow: 1;
   height: 100%;
 }
 .shop_title {
   height: 30%;
+  margin-bottom: 10px;
 }
 .shop_title h5 {
   width: 100%;
+  margin-top: 20px;
   margin-right: 0px;
   text-align: left;
+  color: #FFFFFF;
+  font-family: "Microsoft Yahei";
+  font-weight: normal;
+  font-size: 19px;
 }
 div .mint-searchbar {
   background-color: transparent;
   padding: 0px;
+  width: 250px;
 }
 div .mint-searchbar-inner {
   border-radius: 10px;
   height: 14px;
 }
+.mint-searchbar-inner .mintui-search {
+  color: #2f373d;
+}
 .like {
-  position: relative;
-  top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 60px;
+}
+.like_pic {
+  width: 30px;
 }
 .like_num {
   font-size: 5px;
-  position: relative;
-  top: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #FFFFFF;
 }
 </style>
