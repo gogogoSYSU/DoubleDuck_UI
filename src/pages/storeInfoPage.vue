@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import storeImgSwipe from '@/components/storeImgSwipe'
-import storeInfoTitle from '@/components/storeInfoTitle'
-import storeInfoList from '@/components/storeInfoList'
-import storeIntro from '@/components/storeIntro'
+import storeImgSwipe from '../components/storeImgSwipe'
+import storeInfoTitle from '../components/storeInfoTitle'
+import storeInfoList from '../components/storeInfoList'
+import storeIntro from '../components/storeIntro'
 // 引入axios组件以访问json文件
 import axios from 'axios'
 
