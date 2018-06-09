@@ -1,0 +1,30 @@
+{
+  "store": {
+    "info": {
+        "name": "双鸭点餐",
+        "intro": "json数据测试",
+        "imgs": [
+          { "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528382905544&di=d9bb3c60fdee88362c6b3a49d29b6829&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3Df620a32db399a9012f38537674ed6f17%2F472309f7905298229b1e46fadcca7bcb0a46d4de.jpg" },
+          { "url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2120654508,3358819030&fm=200&gp=0.jpg" },
+          { "url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528382905541&di=6327361dbff0c64257e256b9fb208b55&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3D4ccf43fe9b529822113e3183beb21ea7%2F3bf33a87e950352accb05a315843fbf2b2118b31.jpg" }
+        ],
+        "logo": "https://github.com/gogogoSYSU/documents/raw/master/UI/customerDemo/images/1905/19055481/raw_1523944724.png",
+        "infoList": [
+          {
+            "src": "./../assets/icon/电话.png",
+            "info": "8888 8887"
+          },
+          {
+            "src": "./../assets/icon/地址.png",
+            "info": "广州大学城GOGO双鸭山"
+          },
+          {
+            "src": "./../assets/icon/时间.png",
+            "info": "09:30-22:30"
+          }
+        ],
+        "introTitle": "店铺介绍",
+        "introContent": "如果你无法简洁的表达你的想法，那只能说明你还不够了解它   ——阿尔伯特·爱因斯坦"
+      }
+    }
+}
