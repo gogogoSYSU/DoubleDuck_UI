@@ -3,7 +3,7 @@
   <div class="mint-swipe">
     <mt-swipe :auto="1000">
       <mt-swipe-item v-for="img in imgs" :key="img.id">
-        <img class="swipe-img" :src="img.url" alt="logo" :width="swipeItemWidth" :height="swipeItemHeight"/>
+        <img class="swipe-img" :src="img.url" alt="logo" />
       </mt-swipe-item>
     </mt-swipe>
   </div>
@@ -16,11 +16,7 @@ import { Swipe, SwipeItem } from 'mint-ui'
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
 export default {
-  props: {
-    imgs: {
-      default: []
-    }
-  }
+  props: ['imgs']
 }
 </script>
 
