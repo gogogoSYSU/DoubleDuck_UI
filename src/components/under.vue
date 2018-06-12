@@ -1,0 +1,102 @@
+<template>
+    <div class="footer">
+        <div class="basket">
+            <img class="basket_img" src= "../../assets/img/cart.png">
+        </div>
+        <div class="red_point" v-show="!isEmpty">{{thingsNum}}</div>
+        <div class="black_box">
+            <p class="total_money">{{totalMoney}}</p>
+        </div>
+        <mt-button class="yellow_box" :disabled=isEmpty>{{msg}}</mt-button>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'under',
+  props: {
+    totalMoney: {
+      default: '吃点什么好呢……'
+    },
+    isEmpty: {
+      default: false
+    },
+    msg: {
+      default: '选好了'
+    },
+    thingsNum: {
+      default: 1
+    }
+  }
+}
+</script>
+
+<style>
+.footer {
+    display: flex;
+    height: 10.5vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+}
+
+.basket {
+    height: 8vh;
+    width: 8vh;
+    background-color: rgb(255, 179, 66);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 1.2vh;
+    left: 3vw;
+}
+
+.basket_img {
+    height: 5.5vh;
+    width: 5.5vh;
+    margin-top: 1.4vh;
+    margin-left: -0.5vw;
+}
+
+.red_point {
+    display: flex;
+    height: 2.8vh;
+    width: 2.8vh;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    left: 7.5vh;
+    top: 0.8vh;
+    color: white;
+    align-content: center;
+    justify-content: center;
+    font-size: 4vw;
+}
+
+.black_box {
+    display: flex;
+    height: 8vh;
+    background-color: black;
+    width: 70%;
+    align-self: flex-end;
+    justify-content: flex-end;
+}
+
+.total_money {
+    color: rgb(230, 230, 230);
+    font-size: 2.5vh;
+    display: flex;
+    align-self: center;
+    margin-right: 2vw;
+}
+
+.yellow_box {
+    width: 30%;
+    height: 8vh;
+    align-self: flex-end;
+    font-size: 2.5vh;
+    color: black;
+    background-color: rgb(255, 179, 66);
+    border-radius: 0;
+}
+</style>
