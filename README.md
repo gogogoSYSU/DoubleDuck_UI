@@ -1,6 +1,6 @@
-# myvueapp
+# README
 
-> A Vue.js project
+> 双鸭点餐web点餐页面
 
 ## Build Setup
 
