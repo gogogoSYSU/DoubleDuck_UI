@@ -6,7 +6,7 @@
     <div class="shop_name_box">
       <div class="shop_title">
         <p class="shop_name">{{shopName}}</p>
-        <a href="#"><img class="shop_detail_pic" :src="shopDetailPict"/></a>
+        <a href="#/storeInfoPage"><img class="shop_detail_pic" :src="shopDetailPict"/></a>
       </div>
       <mt-search id="shop_search" v-model="hotDishes"></mt-search>
     </div>
