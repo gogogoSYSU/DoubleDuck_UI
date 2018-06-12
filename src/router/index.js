@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import mainPage from '../pages/mainPage.vue'
-import orderPage from '../pages/OrderPage.vue'
+import orderPage from '../pages/orderPage.vue'
 import storeInfoPage from '../pages/storeInfoPage.vue'
-import payPage from '../pages/PayPage.vue'
+import payPage from '../pages/payPage.vue'
 
 Vue.use(Router)
 
@@ -15,8 +15,8 @@ export default new Router({
       component: mainPage
     },
     {
-      path: '/OrderPage',
-      name: 'OrderPage',
+      path: '/orderPage',
+      name: 'orderPage',
       component: orderPage
     },
     {
@@ -25,8 +25,8 @@ export default new Router({
       component: storeInfoPage
     },
     {
-      path: '/PayPage',
-      name: 'PayPage',
+      path: '/payPage',
+      name: 'payPage',
       component: payPage
     }
   ]
