@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import shopHeader from '../pages/ShopHeader.vue'
+import mainPage from '../pages/mainPage.vue'
+import dishesList from '../components/dishesList.vue'
 
 Vue.use(Router)
 
@@ -9,7 +10,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: shopHeader
+      component: mainPage
     }
   ]
 })
