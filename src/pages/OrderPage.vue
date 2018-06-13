@@ -10,7 +10,7 @@ import orderDishList from '../components/orderPageCom/orderDishList.vue'
 import under from '../components/orderPageCom/under.vue'
 
 export default {
-  name: 'testPage',
+  name: 'orderPage',
   components: {
     'orderDishList': orderDishList,
     'under': under

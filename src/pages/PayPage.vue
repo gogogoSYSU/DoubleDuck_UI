@@ -6,8 +6,7 @@
     <p class="store_name">双鸭山饭店 - 5999号桌</p>
   </div>
 
-  <mt-radio class="radio" align="right" v-model="value" :options="options">
-  </mt-radio>
+  <choosePayWayRadio></choosePayWayRadio>
 
   <mt-button class="sure_pay_btn" type="default">
     <span class="text_pay">确认支付</span>
@@ -18,23 +17,12 @@
 </template>
 
 <script>
+import choosePayWayRadio from '../components/payPageCom/choosePayWayRadio.vue'
+
 export default {
-  data () {
-    return {
-      value: '',
-      options: [{
-        label: '美团支付',
-        value: 'valueA'
-      },
-      {
-        label: '中国银行',
-        value: 'valueB'
-      },
-      {
-        label: '微信支付',
-        value: 'valueC'
-      }
-      ]}
+  name: 'payPage',
+  components: {
+    'choosePayWayRadio': choosePayWayRadio
   }
 }
 </script>
@@ -72,10 +60,6 @@ export default {
   color: #E6E6E6;
   font-size: 28px;
   margin: 0px;
-}
-
-.radio {
-  margin: 20px;
 }
 
 .sure_pay_btn {
