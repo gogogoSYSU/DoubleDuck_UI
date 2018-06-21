@@ -1,13 +1,13 @@
 <template>
     <div class="footer">
         <div class="basket">
-            <img class="basket_img" src= "../../assets/img/cart.png">
+            <img class="basket_img" src= "../../../assets/img/cart.png">
         </div>
         <div class="red_point" v-show="!isEmpty">{{thingsNum}}</div>
         <div class="black_box">
             <p class="total_money">{{totalMoney}}</p>
         </div>
-        <mt-button class="yellow_box" :disabled=isEmpty>{{msg}}</mt-button>
+        <a href="#/OrderPage" class="yellow_a"><mt-button class="yellow_box" :disabled=isEmpty>{{msg}}</mt-button></a>
     </div>
 </template>
 
@@ -16,16 +16,24 @@ export default {
   name: 'under',
   props: {
     totalMoney: {
-      default: '吃点什么好呢……'
+      default: function () {
+        return '吃点什么好呢……'
+      }
     },
     isEmpty: {
-      default: false
+      default: function () {
+        return false
+      }
     },
     msg: {
-      default: '选好了'
+      default: function () {
+        return '选好了'
+      }
     },
     thingsNum: {
-      default: 1
+      default: function () {
+        return 1
+      }
     }
   }
 }
@@ -76,7 +84,7 @@ export default {
 .black_box {
     display: flex;
     height: 8vh;
-    background-color: black;
+    background-color: #333333;
     width: 70%;
     align-self: flex-end;
     justify-content: flex-end;
@@ -90,10 +98,15 @@ export default {
     margin-right: 2vw;
 }
 
-.yellow_box {
+.yellow_a {
     width: 30%;
     height: 8vh;
     align-self: flex-end;
+}
+
+.yellow_box {
+    width: 100%;
+    height: 100%;
     font-size: 2.5vh;
     color: black;
     background-color: rgb(255, 179, 66);
