@@ -6,7 +6,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   name: 'guide',
@@ -85,4 +84,3 @@ export default {
   color: black;
 }
 </style>
-

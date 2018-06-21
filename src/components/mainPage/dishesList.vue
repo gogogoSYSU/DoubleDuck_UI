@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import guide from "./guide.vue";
-import category from "./category.vue"
+import guide from './guide.vue'
+import category from './category.vue'
 
 export default {
   name: 'dishes_list',

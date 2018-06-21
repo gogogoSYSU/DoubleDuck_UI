@@ -21,7 +21,6 @@ export default {
 }
 </script>
 
-
 <style>
 
 .under {
@@ -48,7 +47,7 @@ export default {
 }
 
 .total_price {
-  color: #FFFFFF; 
+  color: #FFFFFF;
   font-size: 5vw;
   text-align: center;
   margin-left: 5%;

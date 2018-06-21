@@ -69,7 +69,7 @@ export default {
   width: 100%;
   height: 104px;
   font-size: 30px;
-  align: right;
+  text-align: right;
   position: absolute;
   bottom: 0;
 }
