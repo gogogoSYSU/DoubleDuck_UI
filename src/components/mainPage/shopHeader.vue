@@ -11,10 +11,10 @@
       <mt-search id="shop_search" v-model="hotDishes"></mt-search>
     </div>
 
-    <img class="vertical_line" src="../../assets/img/vertical_line.png"/>
+    <img class="vertical_line" src="../../../assets/img/vertical_line.png"/>
 
     <div class="hot">
-      <img class="hot_pic" src="../../assets/img/hot.png" />
+      <img class="hot_pic" src="../../../assets/img/hot.png" />
       <p class="hot_num">{{sales}}<span class="red">+</span></p>
     </div>
   </div>
@@ -25,10 +25,10 @@ export default {
   name: 'shop_detail_header',
   props: {
     shopImg: {
-      default: require('../../assets/img/header.jpeg')
+      default: require('../../../assets/img/header.jpeg')
     },
     shopDetailPict: {
-      default: require('../../assets/img/right_arrow.png')
+      default: require('../../../assets/img/right_arrow.png')
     },
     shopName: {
       default: '双鸭美食(大学城店)'
@@ -49,7 +49,7 @@ export default {
   flex-direction: row;
   height: 15vh;
   width: 100%;
-  background-image: url('../../assets/img/header_bg.jpg');
+  background-image: url('../../../assets/img/header_bg.jpg');
   overflow: hidden;
   position: fixed;
   top: 0;

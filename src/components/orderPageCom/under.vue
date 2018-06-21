@@ -1,42 +1,71 @@
 <template>
   <div class="under">
-    <div class="total">
+    <div class="word_box">
       <p class="total_num">合计</p>
-      <p class="total_price">￥55.82</p>
-      <mt-button class="commit_order_btn" type="default">提交订单</mt-button>
+      <p class="total_price">{{'￥' + totalPrice}}</p>
     </div>
+    <a class="commit_a" href="#/PayPage"><mt-button class="commit_order_btn" type="default">提交订单</mt-button></a>
   </div>
 </template>
 
+<script>
+export default {
+  name: 'commit_under',
+  props: {
+    totalPrice: {
+      default: function () {
+        return 55.82
+      }
+    }
+  }
+}
+</script>
+
+
 <style>
-.total {
+
+.under {
   display: flex;
   justify-content: flex-end;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background-color: #333333;
   width: 100%;
-  height: 8%;
+  height: 8vh;
+}
+
+.word_box {
+  width: 62%;
+  display: flex;
+  flex-direction: row;
 }
 
 .total_num {
   color: #D9D9D9;
-  font-size: 32px;
-  margin-right: 12px;
+  font-size: 5vw;
+  width: 20%;
+  line-height: 100%;
 }
 
 .total_price {
-  color: #FFFFFF; //font-weight: bold;
-  font-size: 36px;
-  margin-right: 5%;
+  color: #FFFFFF; 
+  font-size: 5vw;
+  text-align: center;
+  margin-left: 5%;
+  line-height: 100%;
+}
+
+.commit_a {
+  width: 30%;
+  height: 100%;
 }
 
 .commit_order_btn {
   background-color: #FFCB50;
-  margin-right: 0px;
   color: #000000;
-  font-size: 36px;
+  font-size: 5vw;
   height: 100%;
-  width: 32%;
+  width: 100%;
+  border-radius: 0;
 }
 </style>

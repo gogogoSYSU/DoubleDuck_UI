@@ -8,9 +8,9 @@
 
 <script>
 
-import shopHeader from '../components/shopHeader.vue'
-import under from '../components/under.vue'
-import dishesList from '../components/dishesList.vue'
+import shopHeader from '../components/mainPage/shopHeader.vue'
+import under from '../components/mainPage/under.vue'
+import dishesList from '../components/mainPage/dishesList.vue'
 
 export default {
   name: 'mainPage',

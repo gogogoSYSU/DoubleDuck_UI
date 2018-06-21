@@ -87,7 +87,7 @@ export default {
 }
 
 .dish_copy {
-  font-size: 24px;
+  font-size: 5vw;
   text-align: start;
   margin-top: 0px;
   height: 12px;
@@ -95,7 +95,7 @@ export default {
 }
 
 .dish_price {
-  font-size: 36px;
+  font-size: 5vw;
   position: absolute;
   text-align: end;
   right: 60px;
