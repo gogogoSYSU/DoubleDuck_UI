@@ -5,13 +5,12 @@
     </div>
     <div v-for="dish in dishes.dishes_list" v-bind:key="dish.id">
       <dish :item="dish"></dish>
-    </div>  
+    </div>
   </div>
 </template>
 
 <script>
-import dish from "./dish.vue"
-
+import dish from './dish.vue'
 export default {
   name: 'category',
   components: {
@@ -41,7 +40,7 @@ export default {
               dish_pict: require('../../../assets/img/header.jpeg'),
               dish_sale: 666,
               dish_price: 18
-              }
+            }
           ]
         }
       }

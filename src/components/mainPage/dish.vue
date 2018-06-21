@@ -38,13 +38,13 @@ export default {
   methods: {
     minus_dish: function () {
       this.dishesNum = this.dishesNum - 1
-      if (this.dishesNum == 0) {
+      if (parseInt(this.dishesNum) === 0) {
         this.isChoosed = false
       }
     },
     add_dish: function () {
       this.dishesNum = this.dishesNum + 1
-      if (this.dishesNum == 1) {
+      if (parseInt(this.dishesNum) === 1) {
         this.isChoosed = true
       }
     }

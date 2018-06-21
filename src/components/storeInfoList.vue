@@ -9,7 +9,6 @@
 </template>
 
 <script>
-// import clock from './../assets/icon/时间.png'
 export default {
   props: {
     items: {
