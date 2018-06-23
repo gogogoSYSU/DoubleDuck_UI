@@ -21,6 +21,7 @@ export default {
   },
   data () {
     return {
+      /*
       dishes: [
         {
           category: '热销',
@@ -104,6 +105,7 @@ export default {
           ]
         }
       ]
+      */
     }
   }
 }

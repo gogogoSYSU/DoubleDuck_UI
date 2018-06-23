@@ -1,7 +1,7 @@
 <template>
   <div class="dish_box">
-    <img class="dish_pict" v-lazy="item.dish_pict" @click="$store.state.show = true">
-    <div class="dish_ditail_box">
+    <img class="dish_pict" v-lazy="item.dish_pict" @click="$store.state.show = true"/>
+    <div class="dish_ditail_box" @click="$store.state.show = true">
       <p class="dish_name">{{item.dish_name}}</p>
       <p class="dish_sale">{{'销量'+item.dish_sale}}</p>
       <p class="dish_price">{{'￥ '+item.dish_price}}</p>

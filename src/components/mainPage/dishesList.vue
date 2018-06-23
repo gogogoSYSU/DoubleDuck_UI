@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     dishes () {
-      return this.$store.state.dishes;
+      return this.$store.state.dishes
     }
   }
 }
