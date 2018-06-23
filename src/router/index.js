@@ -4,7 +4,7 @@ import mainPage from '../pages/mainPage.vue'
 import orderPage from '../pages/OrderPage.vue'
 import storeInfoPage from '../pages/storeInfoPage.vue'
 import payPage from '../pages/PayPage.vue'
-import category from '../components/mainPage/dishesList.vue'
+import dishDetail from '../components/mainPage/dishDetail.vue'
 
 Vue.use(Router)
 
@@ -12,7 +12,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'mainPage',
+      name: 'index',
       component: mainPage
     },
     {
