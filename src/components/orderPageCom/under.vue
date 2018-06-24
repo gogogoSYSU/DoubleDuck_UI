@@ -22,9 +22,9 @@ export default {
       }
     }
   },
-  methods:{
+  methods: {
     makeOrder () {
-      if (this.$store.state.selectedDishes.length == 0) {
+      if (this.$store.state.selectedDishes.length === 0) {
         Toast('尚未选择任何菜品')
         this.$router.go(-1)
       }
