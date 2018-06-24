@@ -2,7 +2,7 @@
 <div class="order_page">
   <orderDishList :dishes="selectedDishes"></orderDishList>
   <p v-show="isShow">没有选择任何的菜品</p>
-  <under></under>
+  <under :totalPrice="totalPrice"></under>
 </div>
 </template>
 
@@ -19,13 +19,13 @@ export default {
   data () {
     return {
       selectedDishes: this.$store.state.selectedDishes,
+      totalPrice: this.$store.state.totalPrice,
       isShow: false
     }
   },
-  created ()  {
-    if(this.$store.state.selectedDishes.length==0)
-    {
-      this.isShow=true;
+  created () {
+    if (this.$store.state.selectedDishes.length === 0) {
+      this.isShow = true
     }
   }
 }

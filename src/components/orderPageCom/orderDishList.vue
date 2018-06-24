@@ -7,7 +7,7 @@
           <p class="dish_name">{{item.dish_name}}</p>
           <p class="dish_copy">{{item.dish_copy}}</p>
         </div>
-          <p class="dish_price">{{'¥ ' + item.dish_price}}</p>
+          <p class="dish_price_test">{{'¥ ' + item.dish_price}}</p>
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .order_dish_list {
   width: 100%;
@@ -63,9 +63,9 @@ export default {
   border-width: 1%;
   border-color: #f2f2f2;
   border-style: solid;
-  padding: 1%;
+  padding: 0%;
   height: 50%;
-  width: 100%;
+  width: 98%;
   background-color: #FFFFFF;
 }
 
@@ -103,7 +103,7 @@ export default {
 .dish_price {
   text-align: right;
   font-size: 120%;
-  margin:3% 0% 0% 15%;
+  margin:3% 0% 0% 30%;
   height: 100%;
 }
 </style>
