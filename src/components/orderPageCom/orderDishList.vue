@@ -7,7 +7,7 @@
           <p class="dish_name">{{item.dish_name}}</p>
           <p class="dish_copy">{{item.dish_copy}}</p>
         </div>
-        <p class="dish_price">{{'¥ ' + item.dish_price}}</p>
+          <p class="dish_price">{{'¥ ' + item.dish_price}}</p>
       </div>
     </div>
   </div>
@@ -58,46 +58,52 @@ export default {
 
 .dish_item {
   display: flex;
-  flex-direction: center;
-  border-block-end: solod;
-  border-width: 12px;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-width: 1%;
+  border-color: #f2f2f2;
+  border-style: solid;
   padding: 1%;
-  height: 120px;
+  height: 50%;
+  width: 100%;
   background-color: #FFFFFF;
 }
 
 .dish_icon {
-  height: 112px;
-  width: 112px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  padding-left: 16px;
+  height: 100%;
+  width: 30%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  margin-left:2%;
 }
 
 .dish_detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-left: 4%;
 }
 
 .dish_name {
-  font-size: 36px;
-  text-align: start;
-  margin-top: 6%;
-  margin-left: 0;
-  height: 36px;
+  text-align: left;
+  font-size: 120%;
+  margin-top: 15%;
+  margin-left: 0%;
+  height: 70%;
 }
 
 .dish_copy {
   font-size: 5vw;
   text-align: start;
-  margin-top: 0px;
+  margin-top: 0%;
   height: 12px;
   color: #E6E6E6;
 }
 
 .dish_price {
-  font-size: 5vw;
-  position: absolute;
-  text-align: end;
-  right: 60px;
+  text-align: right;
+  font-size: 120%;
+  margin:3% 0% 0% 15%;
+  height: 100%;
 }
 </style>

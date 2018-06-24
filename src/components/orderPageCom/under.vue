@@ -25,18 +25,22 @@ export default {
 
 .under {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   position: fixed;
   bottom: 0;
   background-color: #333333;
   width: 100%;
-  height: 8vh;
+  height: 8%;
 }
 
 .word_box {
-  width: 62%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 62%;
+  margin-left: 2%;
+  margin-top:0%;
+  text-align: center;
 }
 
 .total_num {
@@ -65,6 +69,6 @@ export default {
   font-size: 5vw;
   height: 100%;
   width: 100%;
-  border-radius: 0;
+  text-align: center;
 }
 </style>
