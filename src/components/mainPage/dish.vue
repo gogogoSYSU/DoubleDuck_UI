@@ -9,12 +9,16 @@
     <div class="buttons_box">
       <mt-button class="minus_button" v-show="isChoosed" v-on:click="minus_dish">-</mt-button>
       <p class="dishes_num" v-show="isChoosed">{{dishesNum}}</p>
-      <mt-button class="add_button" v-on:click="add_dish">+</mt-button>
+      <mt-button class="add_button" v-on:click="add_dish"><span class="text" style="text-align:center;margin:0">+</span></mt-button>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import { PaletteButton } from 'mint-ui'
+Vue.component(PaletteButton.name, PaletteButton)
+
 export default {
   name: 'dish',
   props: {
@@ -160,5 +164,11 @@ export default {
   background-color: rgb(253, 218, 88);
   margin-left: 1.5vw;
   border-radius: 50%;
+}
+
+
+.text{
+  height: 3.5vh;
+  width: 3.5vh;
 }
 </style>

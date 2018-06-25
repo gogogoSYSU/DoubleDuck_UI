@@ -1,6 +1,6 @@
 <template>
 <div class="pay_page">
-  <mt-header class="mt-header" title="订单支付">
+  <mt-header class="mt-header" style="background-color:rgb(255, 179, 66)" title="订单支付">
     <mt-button slot="left" icon="back" @click="back">返回</mt-button>
   </mt-header>
   <div class="rest_time_to_pay">
@@ -72,7 +72,7 @@ export default {
       setTimeout(this.countdown, 1000)
     },
     back () {
-      MessageBox.confirm('确认取消支付？', '提示').then (action =>{
+      MessageBox.confirm('确认取消支付？', '提示').then(action => {
         if (action === 'confirm') {
           this.$router.go(-1)
         }

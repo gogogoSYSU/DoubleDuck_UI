@@ -1,7 +1,7 @@
 <!-- 商家信息主页面 -->
 <template>
   <div class="main-page">
-    <mt-header class="mt-header" title="订单详情">
+    <mt-header class="mt-header" style="background-color:rgb(255, 179, 66);" title="商家信息">
       <router-link to="/" slot="left">
         <mt-button icon="back">返回</mt-button>
       </router-link>
