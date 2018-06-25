@@ -1,6 +1,6 @@
 <template>
   <div class="radio">
-    <mt-radio  title="选择支付方式" align="right" v-model="value" :options="items"></mt-radio>
+    <mt-radio  mainStyle="color:rgb(255, 179, 66)" title="选择支付方式" align="right" v-model="value" :options="items"></mt-radio>
   </div>
 </template>
 
