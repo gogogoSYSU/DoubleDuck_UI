@@ -11,7 +11,7 @@
 
   <choosePayWayRadio></choosePayWayRadio>
 
-  <mt-button style="background-color: rgb(255, 179, 66);margin-top:60%" size="large">
+  <mt-button class="sure_pay_btn" size="large">
     <span class="text_pay">确认支付</span>
     <span class="text_unit">¥</span>
     <span class="text_money">{{totalPrice}}</span>
@@ -46,11 +46,11 @@ export default {
   methods: {
     countdown () {
       this.second = (this.second - 1 + 60) % 60
-      // 判断时间是否已经用尽，如果用尽则弹窗警告
+      // 判断时间是否已经用尽，如果用尽则弹窗提示然后返回上一页
       if (this.second === 0 && this.minute === 0) {
         Toast('超过支付时间')
         // 返回上一页
-        // this.$router.go(-1)
+        this.$router.go(-1)
         // 终止程序运行
         return false
       }
@@ -121,16 +121,8 @@ export default {
 }
 
 .sure_pay_btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  background-color: #FFCB50;
-  width: 100%;
-  height: 10%;
-  font-size: 120%;
-  padding:0%;
-
-  bottom: 0;
+  background-color: rgb(255, 179, 66);
+  margin-top:60%;
 }
 
 .text_pay {

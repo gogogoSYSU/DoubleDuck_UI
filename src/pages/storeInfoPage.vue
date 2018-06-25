@@ -1,6 +1,11 @@
 <!-- 商家信息主页面 -->
 <template>
   <div class="main-page">
+    <mt-header class="mt-header" title="订单详情">
+      <router-link to="/" slot="left">
+        <mt-button icon="back">返回</mt-button>
+      </router-link>
+    </mt-header>
     <store-img-swipe :imgs="storeInfo.imgs"></store-img-swipe>
     <store-info-title :storeName="storeInfo.name" :logoSrc="storeInfo.logo"></store-info-title>
     <store-info-list></store-info-list>
