@@ -15,15 +15,15 @@ export default {
       default: function () {
         return [
           {
-            src: require('./../assets/icon/电话.png'),
+            src: require('./../../assets/icon/电话.png'),
             info: '8888 8888'
           },
           {
-            src: require('./../assets/icon/地址.png'),
+            src: require('./../../assets/icon/地址.png'),
             info: '广州大学城GOGO双鸭山'
           },
           {
-            src: require('./../assets/icon/时间.png'),
+            src: require('./../../assets/icon/时间.png'),
             info: '09:30-22:30'
           }
         ]
