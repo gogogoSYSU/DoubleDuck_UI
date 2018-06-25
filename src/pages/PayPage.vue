@@ -1,5 +1,8 @@
 <template>
 <div class="pay_page">
+  <mt-header class="mt-header" title="订单支付">
+    <mt-button slot="left" icon="back" @click="back">返回</mt-button>
+  </mt-header>
   <div class="rest_time_to_pay">
     <p class="time">支付剩余时间<span v-show="isMinSingle">0</span>{{minute}}:<span v-show="isSecSingle">0</span>{{second}}</p>
     <p class="money">¥ {{totalPrice}}</p>
@@ -18,7 +21,7 @@
 
 <script>
 import choosePayWayRadio from '../components/payPageCom/choosePayWayRadio.vue'
-import { Toast } from 'mint-ui'
+import { Toast, MessageBox } from 'mint-ui'
 
 export default {
   name: 'payPage',
@@ -58,17 +61,22 @@ export default {
 
       if (this.second >= 10) {
         this.isSecSingle = false
-      }
-      else {
+      } else {
         this.isSecSingle = true
       }
       if (this.minute >= 10) {
         this.isMinSingle = false
-      }
-      else {
+      } else {
         this.isMinSingle = true
       }
       setTimeout(this.countdown, 1000)
+    },
+    back () {
+      MessageBox.confirm('确认取消支付？', '提示').then (action =>{
+        if (action === 'confirm') {
+          this.$router.go(-1)
+        }
+      })
     }
   }
 }
