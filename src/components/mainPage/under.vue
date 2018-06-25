@@ -1,7 +1,7 @@
 <template>
     <div class="footer">
         <div class="basket">
-            <img class="basket_img" src= "../../../assets/img/cart.png">
+            <img class="basket_img" src= "../../../assets/img/cart.png" @click="OnShoppingCart">
         </div>
         <div class="red_point" v-show="!isEmpty">{{thingsNum}}</div>
         <div class="black_box">
@@ -35,6 +35,12 @@ export default {
         return 1
       }
     }
+  },
+  methods: {
+    OnShoppingCart () {
+      console.log("sc")
+      this.$store.state.isShowShoppingCart = ~ this.$store.state.isShowShoppingCart
+    }
   }
 }
 </script>
@@ -52,7 +58,7 @@ export default {
 .basket {
     height: 8vh;
     width: 8vh;
-    background-color: rgb(255, 179, 66);
+    background-color:rgb(253, 218, 88);
     border-radius: 50%;
     position: absolute;
     bottom: 1.2vh;
@@ -109,7 +115,7 @@ export default {
     height: 100%;
     font-size: 2.5vh;
     color: black;
-    background-color: rgb(255, 179, 66);
+    background-color: rgb(253, 218, 88);
     border-radius: 0;
 }
 </style>

@@ -7,8 +7,20 @@ export default new vuex.Store({
       storeName: '双鸭山',
       totalPrice: 0,
       show: false,
+      isShowShoppingCart: false,
       // 顾客选中了的菜品
-      selectedDishes: [],
+      selectedDishes: [{
+            dish_name: '清蒸双鸭',
+            dish_icon_url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528382905544&di=d9bb3c60fdee88362c6b3a49d29b6829&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3Df620a32db399a9012f38537674ed6f17%2F472309f7905298229b1e46fadcca7bcb0a46d4de.jpg',
+            dish_copy: 'x5',
+            dish_price: 18.00
+          },
+          {
+            dish_name: '红烧双鸭',
+            dish_icon_url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528382905544&di=d9bb3c60fdee88362c6b3a49d29b6829&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3Df620a32db399a9012f38537674ed6f17%2F472309f7905298229b1e46fadcca7bcb0a46d4de.jpg',
+            dish_copy: 'x2',
+            dish_price: 18.25
+          }],
       dishes: [
       {
         category: '热销',
