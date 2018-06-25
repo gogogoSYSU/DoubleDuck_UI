@@ -11,7 +11,11 @@
 </template>
 
 <script>
-import { Toast } from 'mint-ui'
+import Vue from 'vue'
+import { Toast, Tabbar, TabItem } from 'mint-ui'
+
+Vue.component(Tabbar.name, Tabbar)
+Vue.component(TabItem.name, TabItem)
 
 export default {
   name: 'commit_under',
@@ -27,8 +31,7 @@ export default {
       if (this.$store.state.selectedDishes.length === 0) {
         Toast('尚未选择任何菜品')
         this.$router.go(-1)
-      }
-      else {
+      } else {
         this.$router.push({path: 'PayPage'})
       }
     }

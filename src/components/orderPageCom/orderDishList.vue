@@ -7,7 +7,7 @@
           <p class="dish_name">{{item.dish_name}}</p>
           <p class="dish_copy">{{item.dish_copy}}</p>
         </div>
-          <p class="dish_price_test">{{'¥ ' + item.dish_price}}</p>
+          <p class="dish_price">{{'¥ ' + item.dish_price}}</p>
       </div>
     </div>
   </div>

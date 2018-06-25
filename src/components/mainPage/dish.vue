@@ -42,6 +42,15 @@ export default {
       if (parseInt(this.dishesNum) === 0) {
         this.isChoosed = false
       }
+      for (var i = 0; i < this.$store.state.selectedDishes.length; i++) {
+        if (this.$store.state.selectedDishes[i].dish_name === this.item.dish_name) {
+          this.$store.state.selectedDishes[i].dish_copy--
+          this.$store.state.totalPrice -= this.item.dish_price
+          if (this.$store.state.selectedDishes[i].dish_copy === 0) {
+            this.$store.state.selectedDishes.splice(i, 1)
+          }
+        }
+      }
     },
     add_dish: function () {
       this.dishesNum = this.dishesNum + 1
@@ -49,10 +58,18 @@ export default {
         this.isChoosed = true
       }
       // 将选定的菜品添加到selectedDish中
+      // 遍历数组，查看选择的菜品是不是已在selectDishes中
+      for (var i = 0; i < this.$store.state.selectedDishes.length; i++) {
+        if (this.$store.state.selectedDishes[i].dish_name === this.item.dish_name) {
+          this.$store.state.selectedDishes[i].dish_copy++
+          this.$store.state.totalPrice = this.$store.state.totalPrice + this.item.dish_price
+          return
+        }
+      }
       this.$store.state.selectedDishes.push({
         dish_name: this.item.dish_name,
         dish_icon_url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528382905544&di=d9bb3c60fdee88362c6b3a49d29b6829&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3Df620a32db399a9012f38537674ed6f17%2F472309f7905298229b1e46fadcca7bcb0a46d4de.jpg',
-        dish_copy: 'x' + this.dishesNum,
+        dish_copy: this.dishesNum,
         dish_price: this.item.dish_price})
       // 计算金额
       this.$store.state.totalPrice = this.$store.state.totalPrice + this.item.dish_price
