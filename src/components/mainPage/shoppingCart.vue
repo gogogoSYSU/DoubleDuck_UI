@@ -27,13 +27,18 @@ export default {
       }
     }
   },
+  data () {
+
+  },
   created () {
-    console.log("shoppingCart")
+  },
+  computed: {
   },
   methods: {
     OnClear () {
       this.selectedDishes.splice(0, this.selectedDishes.length)
       this.$store.state.selectedDishes.splice(0, this.$store.state.selectedDishes)
+      this.$store.state.isShowShoppingCart = false
     }
   }
 }

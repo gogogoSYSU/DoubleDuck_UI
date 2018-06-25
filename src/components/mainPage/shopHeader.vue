@@ -14,13 +14,15 @@
     <img class="vertical_line" src="../../../assets/img/vertical_line.png"/>
 
     <div class="hot">
-      <img class="hot_pic" src="../../../assets/img/hot.png" />
-      <p class="hot_num">{{sales}}<span class="red">+</span></p>
+      <img class="hot_pic" v-on:click="OnLike" src="../../../assets/img/hot.png" width="25" height="25" />
+      <p class="hot_num">{{hots}}<span class="red">+</span></p>
     </div>
   </div>
 </template>
 
 <script>
+import { Indicator } from 'mint-ui'
+
 export default {
   name: 'shop_detail_header',
   props: {
@@ -36,8 +38,20 @@ export default {
     hotDishes: {
       default: '双鸭三宝'
     },
-    sales: {
+    hots: {
       default: 999
+    }
+  },
+  created () {
+    this.hots = this.$store.state.hots
+    console.log(this.hots)
+  },
+  methods: {
+    OnLike: function () {
+      console.log('test')
+      Indicator.open('点赞+1')
+      this.$store.state.hots++
+      Indicator.close()
     }
   }
 }
@@ -126,14 +140,15 @@ div .mint-searchbar-inner{
 }
 
 .hot {
-  height: 15vh;
-  width: 7vh;
-  margin-left: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 4vw;
 }
 
 .hot_pic {
-  height: 7.5vh;
-  width: 7vh;
+  height: 4vh;
+  width: 4vh;
   margin-top: 2.2vh;
 }
 
@@ -141,7 +156,7 @@ div .mint-searchbar-inner{
   color: white;
   margin-top: -0.2vh;
   font-size: 2.2vh;
-  text-align: center;
+  text-align: left;
 }
 
 .red {

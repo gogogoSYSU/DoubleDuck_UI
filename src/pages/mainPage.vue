@@ -1,9 +1,9 @@
 <template>
   <div class="mainPage" style="position:relative">
-    <shopHeader style="z-index:1"></shopHeader>
-    <dishesList style="z-index:1" :dishes="dishes"></dishesList>
+    <shopHeader style="z-index:2"></shopHeader>
+    <dishesList style="z-index:1;" :dishes="dishes"></dishesList>
     <div class="under-menu">
-      <shoppingCart style="z-index:2;position:fixed;width:95%" v-show="this.$store.state.isShowShoppingCart"></shoppingCart>
+      <shoppingCart style="z-index:3;position:fixed;width:95%" v-show="this.$store.state.isShowShoppingCart"></shoppingCart>
       <under style="z-index:2;float:bottom;width:95%"></under>
     </div>
 

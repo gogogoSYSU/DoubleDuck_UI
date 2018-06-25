@@ -1,13 +1,13 @@
 <template>
     <div class="footer">
         <div class="basket">
-            <img class="basket_img" src= "../../../assets/img/cart.png" @click="OnShoppingCart">
+            <img class="basket_img" src= "../../../assets/img/cart.png" @click="OnShoppingCart" width="30" height="30">
         </div>
-        <div class="red_point" v-show="!isEmpty">{{thingsNum}}</div>
+        <div class="red_point" v-show="this.$store.state.selectedDishes.length === 0 ? false : true">{{thingsNum}}</div>
         <div class="black_box">
             <p class="total_money">{{totalMoney}}</p>
         </div>
-        <a href="#/OrderPage" class="yellow_a"><mt-button class="yellow_box" :disabled=isEmpty>{{msg}}</mt-button></a>
+        <a href="#/OrderPage" class="yellow_a"><mt-button class="yellow_box" :disabled="this.$store.state.selectedDishes.length === 0 ? true : false">{{msg}}</mt-button></a>
     </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
     },
     isEmpty: {
       default: function () {
-        return false
+        return this.$store.state.selectedDishes.length === 0 ? false : true
       }
     },
     msg: {
@@ -36,10 +36,16 @@ export default {
       }
     }
   },
+  created () {
+    if (this.$store.state.selectedDishes.length === 0) {
+      this.isEmpty = true
+    } else {
+      this.isEmpty = false
+    }
+  },
   methods: {
     OnShoppingCart () {
-      console.log("sc")
-      this.$store.state.isShowShoppingCart = ~ this.$store.state.isShowShoppingCart
+      this.$store.state.isShowShoppingCart = ~this.$store.state.isShowShoppingCart
     }
   }
 }
