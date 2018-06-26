@@ -79,6 +79,13 @@ export default new vuex.Store({
           }
         ]
       }
-    ]
+    ],
+    dishDetail: {
+      dish_name: '冰阔落',
+      dish_pict: require('../../assets/img/header.jpeg'),
+      dish_sale: 666,
+      dish_price: 4,
+      dish_discription: '冰可乐描述'
     }
+  }
 })
