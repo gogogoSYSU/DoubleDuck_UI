@@ -4,7 +4,14 @@ Vue.use(vuex)
 /* eslint-disable */
 export default new vuex.Store({
     state:{
+      storeName: '双鸭山',
+      totalPrice: 0,
       show: false,
+      isShowShoppingCart: false,
+      // 赞数
+      hots: 99,
+      // 顾客选中了的菜品
+      selectedDishes: [],
       dishes: [
       {
         category: '热销',

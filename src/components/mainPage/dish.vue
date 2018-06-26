@@ -7,20 +7,23 @@
       <p class="dish_price">{{'￥ '+item.dish_price}}</p>
     </div>
     <div class="buttons_box">
-      <mt-button class="minus_button" v-show="isChoosed" v-on:click="minus_dish">-</mt-button>
+      <img v-show="isChoosed" src="../../assets/icon/minus.png" width="25" height="25" @click="minus_dish"/>
       <p class="dishes_num" v-show="isChoosed">{{dishesNum}}</p>
-      <mt-button class="add_button" v-on:click="add_dish">+</mt-button>
+      <img src="../../assets/icon/add.png" width="25" height="25" @click="add_dish"/>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import { PaletteButton } from 'mint-ui'
+Vue.component(PaletteButton.name, PaletteButton)
+
 export default {
   name: 'dish',
   props: {
     item: {
       default: function () {
-        /*
         return {
           dish_name: '清蒸双鸭',
           dish_pict: require('../../../assets/img/header.jpeg'),
@@ -28,7 +31,6 @@ export default {
           dish_price: 18,
           dish_description: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干。用盐在鸭身上揉搓一遍，脊背朝上盛入坛子内腌一会，并放上料酒、葱、姜、胡椒粉和清汤，再将坛子封严上屉,用旺火开水蒸2 3小时,取出,揭去封闭汤子的盖,将乳油撇去,加入味精并调好咸淡即成。'
         }
-        */
       }
     }
   },
@@ -44,12 +46,37 @@ export default {
       if (parseInt(this.dishesNum) === 0) {
         this.isChoosed = false
       }
+      for (var i = 0; i < this.$store.state.selectedDishes.length; i++) {
+        if (this.$store.state.selectedDishes[i].dish_name === this.item.dish_name) {
+          this.$store.state.selectedDishes[i].dish_copy--
+          this.$store.state.totalPrice -= this.item.dish_price
+          if (this.$store.state.selectedDishes[i].dish_copy === 0) {
+            this.$store.state.selectedDishes.splice(i, 1)
+          }
+        }
+      }
     },
     add_dish: function () {
       this.dishesNum = this.dishesNum + 1
       if (parseInt(this.dishesNum) === 1) {
         this.isChoosed = true
       }
+      // 将选定的菜品添加到selectedDish中
+      // 遍历数组，查看选择的菜品是不是已在selectDishes中
+      for (var i = 0; i < this.$store.state.selectedDishes.length; i++) {
+        if (this.$store.state.selectedDishes[i].dish_name === this.item.dish_name) {
+          this.$store.state.selectedDishes[i].dish_copy++
+          this.$store.state.totalPrice = this.$store.state.totalPrice + this.item.dish_price
+          return
+        }
+      }
+      this.$store.state.selectedDishes.push({
+        dish_name: this.item.dish_name,
+        dish_icon_url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528382905544&di=d9bb3c60fdee88362c6b3a49d29b6829&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3Df620a32db399a9012f38537674ed6f17%2F472309f7905298229b1e46fadcca7bcb0a46d4de.jpg',
+        dish_copy: this.dishesNum,
+        dish_price: this.item.dish_price})
+      // 计算金额
+      this.$store.state.totalPrice = this.$store.state.totalPrice + this.item.dish_price
     },
     dishClick: function () {
       this.$emit('showDishDetail', this.item)
@@ -58,7 +85,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .dish_box {
   width: 100%;
   height: 12vh;
@@ -111,7 +138,7 @@ export default {
 .buttons_box {
   display: flex;
   flex-direction: row;
-  align-self: flex-end;
+  justify-content: space-between;
   position: absolute;
   right: 2%;
   bottom: 10%;
@@ -120,6 +147,7 @@ export default {
 .dishes_num {
   font-size: 5vw;
   margin-left: 1.5vw;
+  margin-right: 1.5vw;
   margin-bottom: 0;
   margin-top: 0;
 }

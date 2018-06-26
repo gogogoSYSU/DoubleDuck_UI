@@ -5,6 +5,7 @@ import orderPage from '../pages/OrderPage.vue'
 import storeInfoPage from '../pages/storeInfoPage.vue'
 import payPage from '../pages/PayPage.vue'
 import dishDetail from '../components/mainPage/dishDetail.vue'
+import shoppingCart from '../components/mainPage/shoppingCart.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/payPage',
       name: 'payPage',
       component: payPage
+    },
+    {
+      path: '/shoppingCart',
+      name: 'shoppingCart',
+      component: shoppingCart
     }
   ]
 })

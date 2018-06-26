@@ -1,8 +1,12 @@
 <template>
-  <div class="mainPage">
-    <shopHeader></shopHeader>
-    <dishesList :dishes="dishes"></dishesList>
-    <under></under>
+  <div class="mainPage" style="position:relative">
+    <shopHeader style="z-index:2"></shopHeader>
+    <dishesList style="z-index:1;" :dishes="dishes"></dishesList>
+    <div class="under-menu">
+      <shoppingCart style="z-index:3;position:fixed;width:95%" v-show="this.$store.state.isShowShoppingCart"></shoppingCart>
+      <under style="z-index:2;float:bottom;width:95%"></under>
+    </div>
+
   </div>
 </template>
 
@@ -11,101 +15,18 @@
 import shopHeader from '../components/mainPage/shopHeader.vue'
 import under from '../components/mainPage/under.vue'
 import dishesList from '../components/mainPage/dishesList.vue'
+import shoppingCart from '../components/mainPage/shoppingCart.vue'
 
 export default {
   name: 'mainPage',
   components: {
     'shopHeader': shopHeader,
     'dishesList': dishesList,
-    'under': under
+    'under': under,
+    'shoppingCart': shoppingCart
   },
   data () {
     return {
-      /*
-      dishes: [
-        {
-          category: '热销',
-          dishes_num: 3,
-          dishes_list: [
-            {
-              dish_name: '清蒸双鸭',
-              dish_pict: require('../../assets/img/header.jpeg'),
-              dish_sale: 666,
-              dish_price: 18,
-              dish_discription: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干。用盐在鸭身上揉搓一遍，脊背朝上盛入坛子内腌一会，并放上料酒、葱、姜、胡椒粉和清汤，再将坛子封严上屉,用旺火开水蒸2 3小时,取出,揭去封闭汤子的盖,将乳油撇去,加入味精并调好咸淡即成。'
-            },
-            {
-              dish_name: '红烧双鸭',
-              dish_pict: require('../../assets/img/header.jpeg'),
-              dish_sale: 666,
-              dish_price: 18,
-              dish_discription: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干。用盐在鸭身上揉搓一遍，脊背朝上盛入坛子内腌一会，并放上料酒、葱、姜、胡椒粉和清汤，再将坛子封严上屉,用旺火开水蒸2 3小时,取出,揭去封闭汤子的盖,将乳油撇去,加入味精并调好咸淡即成。'
-            },
-            {
-              dish_name: '双鸭肺片',
-              dish_pict: require('../../assets/img/header.jpeg'),
-              dish_sale: 666,
-              dish_price: 18,
-              dish_discription: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干。用盐在鸭身上揉搓一遍，脊背朝上盛入坛子内腌一会，并放上料酒、葱、姜、胡椒粉和清汤，再将坛子封严上屉,用旺火开水蒸2 3小时,取出,揭去封闭汤子的盖,将乳油撇去,加入味精并调好咸淡即成。'
-            }
-          ]
-        },
-        {
-          category: '热销',
-          dishes_num: 3,
-          dishes_list: [
-            {
-              dish_name: '清蒸双鸭',
-              dish_pict: require('../../assets/img/header.jpeg'),
-              dish_sale: 666,
-              dish_price: 18,
-              dish_discription: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干。用盐在鸭身上揉搓一遍，脊背朝上盛入坛子内腌一会，并放上料酒、葱、姜、胡椒粉和清汤，再将坛子封严上屉,用旺火开水蒸2 3小时,取出,揭去封闭汤子的盖,将乳油撇去,加入味精并调好咸淡即成。'
-            },
-            {
-              dish_name: '红烧双鸭',
-              dish_pict: require('../../assets/img/header.jpeg'),
-              dish_sale: 666,
-              dish_price: 18,
-              dish_discription: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干。用盐在鸭身上揉搓一遍，脊背朝上盛入坛子内腌一会，并放上料酒、葱、姜、胡椒粉和清汤，再将坛子封严上屉,用旺火开水蒸2 3小时,取出,揭去封闭汤子的盖,将乳油撇去,加入味精并调好咸淡即成。'
-            },
-            {
-              dish_name: '双鸭肺片',
-              dish_pict: require('../../assets/img/header.jpeg'),
-              dish_sale: 666,
-              dish_price: 18,
-              dish_discription: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干。用盐在鸭身上揉搓一遍，脊背朝上盛入坛子内腌一会，并放上料酒、葱、姜、胡椒粉和清汤，再将坛子封严上屉,用旺火开水蒸2 3小时,取出,揭去封闭汤子的盖,将乳油撇去,加入味精并调好咸淡即成。'
-            }
-          ]
-        },
-        {
-          category: '热销',
-          dishes_num: 3,
-          dishes_list: [
-            {
-              dish_name: '清蒸双鸭',
-              dish_pict: require('../../assets/img/header.jpeg'),
-              dish_sale: 666,
-              dish_price: 18,
-              dish_discription: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干。用盐在鸭身上揉搓一遍，脊背朝上盛入坛子内腌一会，并放上料酒、葱、姜、胡椒粉和清汤，再将坛子封严上屉,用旺火开水蒸2 3小时,取出,揭去封闭汤子的盖,将乳油撇去,加入味精并调好咸淡即成。'
-            },
-            {
-              dish_name: '红烧双鸭',
-              dish_pict: require('../../assets/img/header.jpeg'),
-              dish_sale: 666,
-              dish_price: 18,
-              dish_discription: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干。用盐在鸭身上揉搓一遍，脊背朝上盛入坛子内腌一会，并放上料酒、葱、姜、胡椒粉和清汤，再将坛子封严上屉,用旺火开水蒸2 3小时,取出,揭去封闭汤子的盖,将乳油撇去,加入味精并调好咸淡即成。'
-            },
-            {
-              dish_name: '双鸭肺片',
-              dish_pict: require('../../assets/img/header.jpeg'),
-              dish_sale: 666,
-              dish_price: 18,
-              dish_discription: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干。用盐在鸭身上揉搓一遍，脊背朝上盛入坛子内腌一会，并放上料酒、葱、姜、胡椒粉和清汤，再将坛子封严上屉,用旺火开水蒸2 3小时,取出,揭去封闭汤子的盖,将乳油撇去,加入味精并调好咸淡即成。'
-            }
-          ]
-        }
-      ]
-      */
     }
   }
 }
@@ -118,5 +39,9 @@ export default {
   height: 100%;
   width: 100%;
 }
-
+.under-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 </style>

@@ -1,13 +1,13 @@
 <template>
     <div class="footer">
         <div class="basket">
-            <img class="basket_img" src= "../../../assets/img/cart.png">
+            <img class="basket_img" src= "../../../assets/img/cart.png" @click="OnShoppingCart" width="30" height="30">
         </div>
-        <div class="red_point" v-show="!isEmpty">{{thingsNum}}</div>
+        <div class="red_point" v-show="this.$store.state.selectedDishes.length === 0 ? false : true">{{thingsNum}}</div>
         <div class="black_box">
             <p class="total_money">{{totalMoney}}</p>
         </div>
-        <a href="#/OrderPage" class="yellow_a"><mt-button class="yellow_box" :disabled=isEmpty>{{msg}}</mt-button></a>
+        <a href="#/OrderPage" class="yellow_a"><mt-button class="yellow_box" :disabled="this.$store.state.selectedDishes.length === 0 ? true : false">{{msg}}</mt-button></a>
     </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
     },
     isEmpty: {
       default: function () {
-        return false
+        return this.$store.state.selectedDishes.length === 0 ? false : true
       }
     },
     msg: {
@@ -34,6 +34,18 @@ export default {
       default: function () {
         return 1
       }
+    }
+  },
+  created () {
+    if (this.$store.state.selectedDishes.length === 0) {
+      this.isEmpty = true
+    } else {
+      this.isEmpty = false
+    }
+  },
+  methods: {
+    OnShoppingCart () {
+      this.$store.state.isShowShoppingCart = ~this.$store.state.isShowShoppingCart
     }
   }
 }
@@ -52,7 +64,7 @@ export default {
 .basket {
     height: 8vh;
     width: 8vh;
-    background-color: rgb(255, 179, 66);
+    background-color:rgb(253, 218, 88);
     border-radius: 50%;
     position: absolute;
     bottom: 1.2vh;
@@ -109,7 +121,7 @@ export default {
     height: 100%;
     font-size: 2.5vh;
     color: black;
-    background-color: rgb(255, 179, 66);
+    background-color: rgb(253, 218, 88);
     border-radius: 0;
 }
 </style>

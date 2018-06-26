@@ -1,6 +1,11 @@
 <!-- 商家信息主页面 -->
 <template>
   <div class="main-page">
+    <mt-header class="mt-header" style="background-color:rgb(255, 179, 66);" title="商家信息">
+      <router-link to="/" slot="left">
+        <mt-button icon="back">返回</mt-button>
+      </router-link>
+    </mt-header>
     <store-img-swipe :imgs="storeInfo.imgs"></store-img-swipe>
     <store-info-title :storeName="storeInfo.name" :logoSrc="storeInfo.logo"></store-info-title>
     <store-info-list></store-info-list>
@@ -9,10 +14,10 @@
 </template>
 
 <script>
-import storeImgSwipe from '../components/storeImgSwipe'
-import storeInfoTitle from '../components/storeInfoTitle'
-import storeInfoList from '../components/storeInfoList'
-import storeIntro from '../components/storeIntro'
+import storeImgSwipe from '../components/storeInfoPage/storeImgSwipe'
+import storeInfoTitle from '../components/storeInfoPage/storeInfoTitle'
+import storeInfoList from '../components/storeInfoPage/storeInfoList'
+import storeIntro from '../components/storeInfoPage/storeIntro'
 // 引入axios组件以访问json文件
 import axios from 'axios'
 
