@@ -30,11 +30,6 @@ export default new Router({
       path: '/payPage',
       name: 'payPage',
       component: payPage
-    },
-    {
-      path: '/shoppingCart',
-      name: 'shoppingCart',
-      component: shoppingCart
     }
   ]
 })

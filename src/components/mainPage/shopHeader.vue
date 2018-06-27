@@ -1,21 +1,21 @@
 <template>
   <div class="shop_header">
 
-    <img class="shop_img" :src="shopImg"/>
+    <img class="shop_img" :src="shopImg" @click="gotostoreInfoPage"/>
 
     <div class="shop_name_box">
-      <div class="shop_title">
-        <p class="shop_name">{{shopName}}</p>
-        <a href="#/storeInfoPage"><img class="shop_detail_pic" :src="shopDetailPict"/></a>
+      <div class="shop_title" @click="gotostoreInfoPage">
+        <p class="shop_name">{{$store.state.shopDetail.shopName}}</p>
+        <a href="#/storeInfoPage"><img class="shop_detail_pic" src="../../../assets/img/right_arrow.png"/></a>
       </div>
-      <mt-search id="shop_search" v-model="hotDishes"></mt-search>
+      <input type="search" id="shop_search" >
     </div>
 
     <img class="vertical_line" src="../../../assets/img/vertical_line.png"/>
 
     <div class="hot">
       <img class="hot_pic" v-on:click="OnLike" src="../../../assets/img/hot.png" width="25" height="25" />
-      <p class="hot_num">{{hots}}<span class="red">+</span></p>
+      <p class="hot_num">{{$store.state.shopDetail.hots}}<span class="red">+</span></p>
     </div>
   </div>
 </template>
@@ -25,26 +25,11 @@ import { Indicator } from 'mint-ui'
 
 export default {
   name: 'shop_detail_header',
-  props: {
-    shopImg: {
-      default: require('../../../assets/img/header.jpeg')
-    },
-    shopDetailPict: {
-      default: require('../../../assets/img/right_arrow.png')
-    },
-    shopName: {
-      default: '双鸭美食(大学城店)'
-    },
-    hotDishes: {
-      default: '双鸭三宝'
-    },
-    hots: {
-      default: 999
+  data () {
+    return {
+      hotDishes: this.$store.state.shopDetail.hotDishes,
+      shopImg: this.$store.state.shopDetail.shopImg
     }
-  },
-  created () {
-    this.hots = this.$store.state.hots
-    console.log(this.hots)
   },
   methods: {
     OnLike: function () {
@@ -52,6 +37,9 @@ export default {
       Indicator.open('点赞+1')
       this.$store.state.hots++
       Indicator.close()
+    },
+    gotostoreInfoPage: function () {
+      this.$router.push({path: 'storeInfoPage'})
     }
   }
 }
@@ -161,5 +149,14 @@ div .mint-searchbar-inner{
 
 .red {
   color: red;
+}
+
+#shop_search {
+  height: 4vh;
+  width: 55vw;
+  margin-top: 3%;
+  border-radius: 3vh;
+  font-size: 2vh;
+  padding-left: 3%;
 }
 </style>

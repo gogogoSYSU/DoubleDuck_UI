@@ -32,7 +32,7 @@ export default {
         Toast('尚未选择任何菜品')
         this.$router.go(-1)
       } else {
-        this.$router.push({path: 'PayPage'})
+        this.$router.push({path: 'payPage'})
       }
     }
   }
