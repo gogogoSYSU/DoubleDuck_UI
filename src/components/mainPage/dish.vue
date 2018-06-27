@@ -7,14 +7,18 @@
       <p class="dish_price">{{'￥ '+item.dish_price}}</p>
     </div>
     <div class="buttons_box">
-      <mt-button class="minus_button" v-show="isChoosed" v-on:click="minus_dish">-</mt-button>
+      <img v-show="isChoosed" src="../../assets/icon/minus.png" width="25" height="25" @click="minus_dish"/>
       <p class="dishes_num" v-show="isChoosed">{{dishesNum}}</p>
-      <mt-button class="add_button" v-on:click="add_dish">+</mt-button>
+      <img src="../../assets/icon/add.png" width="25" height="25" @click="add_dish"/>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import { PaletteButton } from 'mint-ui'
+Vue.component(PaletteButton.name, PaletteButton)
+
 export default {
   name: 'dish',
   props: {
@@ -134,7 +138,7 @@ export default {
 .buttons_box {
   display: flex;
   flex-direction: row;
-  align-self: flex-end;
+  justify-content: space-between;
   position: absolute;
   right: 2%;
   bottom: 10%;
@@ -143,6 +147,7 @@ export default {
 .dishes_num {
   font-size: 5vw;
   margin-left: 1.5vw;
+  margin-right: 1.5vw;
   margin-bottom: 0;
   margin-top: 0;
 }
