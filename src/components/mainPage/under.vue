@@ -3,46 +3,18 @@
         <div class="basket">
             <img class="basket_img" src= "../../../assets/img/cart.png" @click="OnShoppingCart" width="30" height="30">
         </div>
-        <div class="red_point" v-show="this.$store.state.selectedDishes.length === 0 ? false : true">{{thingsNum}}</div>
+        <div class="red_point" v-show="this.$store.state.selectedDishes.length === 0 ? false : true">{{$store.state.thingsNum}}</div>
         <div class="black_box">
-            <p class="total_money">{{totalMoney}}</p>
+            <p class="total_money_0" v-show="!Boolean($store.state.selectedDishes.length === 0 ? false : true)">吃点什么好呢……</p>
+            <p class="total_money" v-show="Boolean($store.state.selectedDishes.length === 0 ? false : true)">{{'￥' + $store.state.totalPrice}}</p>
         </div>
-        <a href="#/OrderPage" class="yellow_a"><mt-button class="yellow_box" :disabled="this.$store.state.selectedDishes.length === 0 ? true : false">{{msg}}</mt-button></a>
+        <a href="#/orderPage" class="yellow_a"><mt-button class="yellow_box" :disabled="this.$store.state.selectedDishes.length === 0 ? true : false">选好了</mt-button></a>
     </div>
 </template>
 
 <script>
 export default {
   name: 'under',
-  props: {
-    totalMoney: {
-      default: function () {
-        return '吃点什么好呢……'
-      }
-    },
-    isEmpty: {
-      default: function () {
-        return this.$store.state.selectedDishes.length === 0 ? false : true
-      }
-    },
-    msg: {
-      default: function () {
-        return '选好了'
-      }
-    },
-    thingsNum: {
-      default: function () {
-        return 1
-      }
-    }
-  },
-  created () {
-    if (this.$store.state.selectedDishes.length === 0) {
-      this.isEmpty = true
-    } else {
-      this.isEmpty = false
-    }
-  },
   methods: {
     OnShoppingCart () {
       this.$store.state.isShowShoppingCart = ~this.$store.state.isShowShoppingCart
@@ -58,7 +30,6 @@ export default {
     width: 100%;
     position: fixed;
     bottom: 0;
-    z-index: 9999;
 }
 
 .basket {
@@ -102,9 +73,17 @@ export default {
     justify-content: flex-end;
 }
 
-.total_money {
+.total_money_0 {
     color: rgb(230, 230, 230);
     font-size: 2.5vh;
+    display: flex;
+    align-self: center;
+    margin-right: 2vw;
+}
+
+.total_money {
+    color: rgb(230, 230, 230);
+    font-size: 3.2vh;
     display: flex;
     align-self: center;
     margin-right: 2vw;

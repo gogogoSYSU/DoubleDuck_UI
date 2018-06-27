@@ -5,8 +5,8 @@
   </mt-header>
   <div class="rest_time_to_pay">
     <p class="time">支付剩余时间<span v-show="isMinSingle">0</span>{{minute}}:<span v-show="isSecSingle">0</span>{{second}}</p>
-    <p class="money">¥ {{totalPrice}}</p>
-    <p class="store_name">{{storeName}}</p>
+    <p class="money">{{'¥' + $store.state.totalPrice}}</p>
+    <p class="store_name">{{$store.state.storeName}}</p>
   </div>
 
   <choosePayWayRadio></choosePayWayRadio>
@@ -14,7 +14,7 @@
   <mt-button class="sure_pay_btn" size="large">
     <span class="text_pay">确认支付</span>
     <span class="text_unit">¥</span>
-    <span class="text_money">{{totalPrice}}</span>
+    <span class="text_money">{{$store.state.totalPrice}}</span>
   </mt-button>
 </div>
 </template>
