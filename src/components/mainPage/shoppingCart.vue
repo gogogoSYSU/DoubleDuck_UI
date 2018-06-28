@@ -22,7 +22,7 @@ Vue.component(Cell.name, Cell)
 export default {
   computed: {
     selectedDishes: function () {
-        return this.$store.state.selectedDishes
+      return this.$store.state.selectedDishes
     }
   },
   methods: {

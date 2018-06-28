@@ -8,7 +8,7 @@
     </div>
     <div class="buttons_box">
       <img v-show="isChoosed" src="../../assets/icon/minus.png" width="25" height="25" @click="minus_dish"/>
-      <p class="dishes_num" v-show="isChoosed">{{dishesNum}}</p>
+      <p class="dishes_num" v-show="isChoosed">{{gainDishNum}}</p>
       <img src="../../assets/icon/add.png" width="25" height="25" @click="add_dish"/>
     </div>
   </div>
@@ -36,17 +36,24 @@ export default {
   },
   data () {
     return {
-      isChoosed: false,
-      dishesNum: 0
+      isChoosed: false
+    }
+  },
+  computed: {
+    gainDishNum: function () {
+      for (var i = 0; i < this.$store.state.selectedDishes.length; i++) {
+        if (this.$store.state.selectedDishes[i].dish_name === this.item.dish_name) {
+          this.isChoosed = true
+          return this.$store.state.selectedDishes[i].dish_copy
+        }
+      }
+      this.isChoosed = false
+      return 0
     }
   },
   methods: {
     minus_dish: function () {
       this.$store.state.thingsNum -= 1
-      this.dishesNum = this.dishesNum - 1
-      if (parseInt(this.dishesNum) === 0) {
-        this.isChoosed = false
-      }
       for (var i = 0; i < this.$store.state.selectedDishes.length; i++) {
         if (this.$store.state.selectedDishes[i].dish_name === this.item.dish_name) {
           this.$store.state.selectedDishes[i].dish_copy--
@@ -59,10 +66,6 @@ export default {
     },
     add_dish: function () {
       this.$store.state.thingsNum += 1
-      this.dishesNum = this.dishesNum + 1
-      if (parseInt(this.dishesNum) === 1) {
-        this.isChoosed = true
-      }
       // 将选定的菜品添加到selectedDish中
       // 遍历数组，查看选择的菜品是不是已在selectDishes中
       for (var i = 0; i < this.$store.state.selectedDishes.length; i++) {
