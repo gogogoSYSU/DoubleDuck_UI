@@ -1,14 +1,14 @@
 <template>
   <div class="dish_box">
-    <img class="dish_pict" v-lazy="item.dish_pict" @click="$store.state.show = true"/>
-    <div class="dish_ditail_box" @click="$store.state.show = true">
+    <img class="dish_pict" v-lazy="item.dish_pict" @click="showDetail"/>
+    <div class="dish_ditail_box" @click="showDetail">
       <p class="dish_name">{{item.dish_name}}</p>
       <p class="dish_sale">{{'销量'+item.dish_sale}}</p>
       <p class="dish_price">{{'￥ '+item.dish_price}}</p>
     </div>
     <div class="buttons_box">
       <img v-show="isChoosed" src="../../assets/icon/minus.png" width="25" height="25" @click="minus_dish"/>
-      <p class="dishes_num" v-show="isChoosed">{{dishesNum}}</p>
+      <p class="dishes_num" v-show="isChoosed">{{gainDishNum}}</p>
       <img src="../../assets/icon/add.png" width="25" height="25" @click="add_dish"/>
     </div>
   </div>
@@ -18,7 +18,7 @@
 import Vue from 'vue'
 import { PaletteButton } from 'mint-ui'
 Vue.component(PaletteButton.name, PaletteButton)
-
+/* eslint-disable */
 export default {
   name: 'dish',
   props: {
@@ -36,16 +36,24 @@ export default {
   },
   data () {
     return {
-      isChoosed: false,
-      dishesNum: 0
+      isChoosed: false
+    }
+  },
+  computed: {
+    gainDishNum: function () {
+      for (var i = 0; i < this.$store.state.selectedDishes.length; i++) {
+        if (this.$store.state.selectedDishes[i].dish_name === this.item.dish_name) {
+          this.isChoosed = true
+          return this.$store.state.selectedDishes[i].dish_copy
+        }
+      }
+      this.isChoosed = false
+      return 0
     }
   },
   methods: {
     minus_dish: function () {
-      this.dishesNum = this.dishesNum - 1
-      if (parseInt(this.dishesNum) === 0) {
-        this.isChoosed = false
-      }
+      this.$store.state.thingsNum -= 1
       for (var i = 0; i < this.$store.state.selectedDishes.length; i++) {
         if (this.$store.state.selectedDishes[i].dish_name === this.item.dish_name) {
           this.$store.state.selectedDishes[i].dish_copy--
@@ -57,10 +65,7 @@ export default {
       }
     },
     add_dish: function () {
-      this.dishesNum = this.dishesNum + 1
-      if (parseInt(this.dishesNum) === 1) {
-        this.isChoosed = true
-      }
+      this.$store.state.thingsNum += 1
       // 将选定的菜品添加到selectedDish中
       // 遍历数组，查看选择的菜品是不是已在selectDishes中
       for (var i = 0; i < this.$store.state.selectedDishes.length; i++) {
@@ -73,13 +78,18 @@ export default {
       this.$store.state.selectedDishes.push({
         dish_name: this.item.dish_name,
         dish_icon_url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528382905544&di=d9bb3c60fdee88362c6b3a49d29b6829&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3Df620a32db399a9012f38537674ed6f17%2F472309f7905298229b1e46fadcca7bcb0a46d4de.jpg',
-        dish_copy: this.dishesNum,
+        dish_copy: 1,
         dish_price: this.item.dish_price})
       // 计算金额
       this.$store.state.totalPrice = this.$store.state.totalPrice + this.item.dish_price
     },
-    dishClick: function () {
-      this.$emit('showDishDetail', this.item)
+    showDetail: function () {
+      this.$store.state.show = true
+      this.$store.state.dishDetail.dish_name = this.item.dish_name
+      this.$store.state.dishDetail.dish_pict = this.item.dish_pict
+      this.$store.state.dishDetail.dish_sale = this.item.dish_sale
+      this.$store.state.dishDetail.dish_price = this.item.dish_price
+      this.$store.state.dishDetail.dish_description = this.item.dish_description
     }
   }
 }

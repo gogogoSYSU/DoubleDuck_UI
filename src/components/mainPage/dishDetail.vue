@@ -1,39 +1,19 @@
 <template>
   <div class="detailBox">
     <mt-button class="cancelButton" v-on:click="$store.state.show = false">X</mt-button>
-    <div class="detail_pict" v-bind:style="{'background-image':'url('+item.dish_pict+')'}"></div>
+    <div class="detail_pict" v-bind:style="{'background-image':'url('+$store.state.dishDetail.dish_pict+')'}"></div>
     <div class="nameDetailBox">
-      <p class="detailName">{{item.dish_name}}</p>
-      <p class="detailSale">{{'月售'+item.dish_sale}}</p>
-      <p class="detailPrice">{{'￥'+item.dish_price}}</p>
+      <p class="detailName">{{$store.state.dishDetail.dish_name}}</p>
+      <p class="detailSale">{{'月售'+$store.state.dishDetail.dish_sale}}</p>
+      <p class="detailPrice">{{'￥'+$store.state.dishDetail.dish_price}}</p>
     </div>
-    <div class="discription">{{item.dish_discription}}</div>
+    <div class="description">{{$store.state.dishDetail.dish_discription}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'dishDetail',
-  /*
-  props: {
-    item: {
-      default: function () {
-        return {
-          dish_name: '清蒸双鸭',
-          dish_pict: require('../../../assets/img/header.jpeg'),
-          dish_sale: 666,
-          dish_price: 18,
-          dish_discription: '清蒸鸭子是一道传统名菜，清蒸鸭子的肉香味美，肉质软烂，味道鲜美。鸭子剖膛去内脏、足、舌、鸭臊、及翅尖的一段，用水洗净，控去水分。然后，在烧开的汤内把鸭子煮一下，将血水去掉，捞出后用水冲洗，并尽量把水分控干.'
-        }
-      }
-    }
-  }
-  */
-  computed: {
-    item () {
-      return this.$store.state.dishDetail
-    }
-  }
+  name: 'dishDetail'
 }
 </script>
 

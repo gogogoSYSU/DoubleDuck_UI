@@ -20,25 +20,18 @@ Vue.component(Header.name, Header)
 Vue.component(Cell.name, Cell)
 
 export default {
-  props: {
-    selectedDishes: {
-      default: function () {
-        return this.$store.state.selectedDishes
-      }
+  computed: {
+    selectedDishes: function () {
+      return this.$store.state.selectedDishes
     }
   },
-  data () {
-
-  },
-  created () {
-  },
-  computed: {
-  },
   methods: {
-    OnClear () {
+    OnClear: function () {
       this.selectedDishes.splice(0, this.selectedDishes.length)
       this.$store.state.selectedDishes.splice(0, this.$store.state.selectedDishes)
       this.$store.state.isShowShoppingCart = false
+      this.$store.state.thingsNum = 0
+      this.$store.state.totalPrice = 0
     }
   }
 }

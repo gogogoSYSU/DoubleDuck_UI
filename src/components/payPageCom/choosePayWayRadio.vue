@@ -12,7 +12,8 @@ Vue.component(Radio.name, Radio)
 export default {
   data () {
     return {
-      items: [{
+      value: '',
+      /* items: [{
         id: '1',
         label: '美团支付',
         url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528382905544&di=d9bb3c60fdee88362c6b3a49d29b6829&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3Df620a32db399a9012f38537674ed6f17%2F472309f7905298229b1e46fadcca7bcb0a46d4de.jpg'
@@ -31,7 +32,8 @@ export default {
         id: '4',
         label: '微信支付',
         url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528382905544&di=d9bb3c60fdee88362c6b3a49d29b6829&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3Df620a32db399a9012f38537674ed6f17%2F472309f7905298229b1e46fadcca7bcb0a46d4de.jpg'
-      }]
+      }] */
+      items: ['美团支付', '微信支付', '中国邮政储蓄银行', '中国银行']
     }
   }
 }

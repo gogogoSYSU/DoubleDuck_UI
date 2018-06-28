@@ -26,7 +26,11 @@ export default {
   },
   computed: {
     dishes () {
-      return this.$store.state.dishes
+      if (this.$store.state.hasSearchResult === false) {
+        return this.$store.state.dishes
+      } else {
+        return this.$store.state.searchResultDishes
+      }
     }
   }
 }
