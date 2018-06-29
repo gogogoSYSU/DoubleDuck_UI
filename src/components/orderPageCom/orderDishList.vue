@@ -70,8 +70,8 @@ export default {
 }
 
 .dish_icon {
-  height: 100%;
-  width: 30%;
+  height: 10vh;
+  width: 10vh;
   margin-top: 4%;
   margin-bottom: 4%;
   margin-left:2%;
@@ -97,7 +97,7 @@ export default {
   text-align: start;
   margin-top: 0%;
   height: 12px;
-  color: #E6E6E6;
+  color: #2f373d;
 }
 
 .dish_price {

@@ -3,7 +3,7 @@
   <div class="introduction">
     <p class="introduction-title">{{storeIntroTitle}}</p>
     <hr class="cutting-line">
-    <p class="introduction-content">{{storeIntroContent}}</p>
+    <p class="introduction-content">{{$store.state.shopDetail.shopIntroContent}}</p>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
       default: '店铺介绍'
     },
     storeIntroContent: {
-      default: '如果你无法简洁的表达你的想法，那只能说明你还不够了解它   ——阿尔伯特·爱因斯坦'
+      default: '双鸭美食位于双鸭山大学数据科学与计算机学院楼旁边，特色菜有清蒸双鸭、红烧双鸭、双鸭肺片、双鸭烧烤等。'
     }
   }
 }
@@ -40,7 +40,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  font-size: 50%;
+  font-size: 80%;
   text-align: left;
 }
 </style>
