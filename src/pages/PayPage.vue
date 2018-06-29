@@ -101,7 +101,7 @@ export default {
 }
 
 .time {
-  color: #E6E6E6;
+  color: #2f373d;
   font-size: 120%;
   margin: 0px;
 }
@@ -115,7 +115,7 @@ export default {
 }
 
 .store_name {
-  color: #E6E6E6;
+  color: #2f373d;
   font-size: 120%;
   margin: 0% 0% 0% 0%;
 }
